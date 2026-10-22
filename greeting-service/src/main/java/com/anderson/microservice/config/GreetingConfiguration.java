@@ -1,0 +1,18 @@
+package com.anderson.microservice.config;
+
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
+import lombok.Setter;
+import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
+import org.springframework.context.annotation.Configuration;
+
+@ConfigurationProperties("greeting-service")
+@RefreshScope
+@Getter
+@Setter
+@RequiredArgsConstructor
+public class GreetingConfiguration {
+    private String greeting;
+    private String defaultValue;
+}
