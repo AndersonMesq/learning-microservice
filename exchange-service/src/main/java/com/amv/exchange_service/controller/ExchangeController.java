@@ -2,6 +2,7 @@ package com.amv.exchange_service.controller;
 
 import com.amv.exchange_service.model.Exchange;
 import com.amv.exchange_service.service.ExchangeService;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -12,6 +13,7 @@ import org.springframework.http.MediaType;
 import java.awt.*;
 import java.math.BigDecimal;
 
+@Tag(name = "Exchange Endpoint")
 @RestController
 @RequestMapping("exchange-service")
 @RequiredArgsConstructor
