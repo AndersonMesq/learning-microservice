@@ -1,5 +1,6 @@
-package com.amv.exchange_service.environment;
+package com.amv.book_service.environment;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.boot.web.server.context.WebServerInitializedEvent;
 import org.springframework.context.ApplicationListener;
 import org.springframework.stereotype.Service;
