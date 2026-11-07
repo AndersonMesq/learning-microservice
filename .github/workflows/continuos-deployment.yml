@@ -44,9 +44,7 @@ jobs:
 
       - name: Tag Docker images
         run:
-          docker tag ${{secrets.DOCKER_USERNAME}}/naming-server:latest ${{secrets.DOCKER_USERNAME}}/naming-server:latest
           docker tag ${{secrets.DOCKER_USERNAME}}/naming-server:latest ${{secrets.DOCKER_USERNAME}}/naming-server:${{github.RUN_ID}}
-          docker tag ${{secrets.DOCKER_USERNAME}}/api-gateway:latest ${{secrets.DOCKER_USERNAME}}/api-gateway:latest
           docker tag ${{secrets.DOCKER_USERNAME}}/api-gateway:latest ${{secrets.DOCKER_USERNAME}}/api-gateway:${{github.RUN_ID}}
           docker tag ${{secrets.DOCKER_USERNAME}}/book-service:latest ${{secrets.DOCKER_USERNAME}}/book-service:${{github.RUN_ID}}
           docker tag ${{secrets.DOCKER_USERNAME}}/exchange-service:latest ${{secrets.DOCKER_USERNAME}}/exchange-gateway:${{github.RUN_ID}}
