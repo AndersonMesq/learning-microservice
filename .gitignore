@@ -4,7 +4,7 @@ target/
 !**/src/test/**/target/
 
 ### Specific ###
-DockerComposeFiles/wordpress/
+z-decrypted-services/DockerComposeFirstTest/wordpress
 
 ###log###
 

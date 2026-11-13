@@ -1,5 +1,6 @@
 package com.amv.exchange_service.environment;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.web.server.context.WebServerInitializedEvent;
 import org.springframework.context.ApplicationListener;
 import org.springframework.stereotype.Service;
@@ -8,12 +9,19 @@ import org.springframework.stereotype.Service;
 public class InstanceInformationService implements ApplicationListener<WebServerInitializedEvent> {
     private String port;
 
+    @Value("${HOSTNAME:LOCAL}")
+    private String hostName;
+
     @Override
     public void onApplicationEvent(WebServerInitializedEvent event) {
         this.port = String.valueOf(event.getWebServer().getPort());
     }
 
-    public String retrieveServerPort(){
+    public String retrieveServerPort() {
         return port;
+    }
+
+    public String retrieveInstanceInfo() {
+        return hostName.substring(hostName.length()-5);
     }
 }
