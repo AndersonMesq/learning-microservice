@@ -1,0 +1,18 @@
+eureka:
+    http://localhost:8761
+book-service:
+    http://localhost:8100/
+exchange-service:
+    http://localhost:8000/exchange-service/5/USD/BRL
+api-gateway:
+    http://localhost:8765/**service-name**/**service-url**
+    http://localhost:8765/exchange-service/exchange-service/5/USD/BRL
+    pos api-gateway.config:
+        http://localhost:8765/**service-url**
+        http://localhost:8765/exchange-service/5/USD/BRL
+Swagger-ui:
+    http://localhost:8000/swagger-ui/index.html
+
+Comandos docker/docker compose:
+    docker build -t NomeDoJar:0.0.1-SNAPSHOT ./diretorio(Se não estiver na raiz do projeto)
+    docker tag naming-server:0.0.1-SNAPSHOT andersonmesq/naming-server:0.0.1-SNAPSHOT
