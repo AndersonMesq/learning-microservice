@@ -18,9 +18,14 @@ Comandos docker/docker compose:
     docker tag naming-server:0.0.1-SNAPSHOT andersonmesq/naming-server:0.0.1-SNAPSHOT
 
 Comandos kubectl:
-    kubectl create deployment exchenge-service --image=andersonmesq/exchange-service:kube-v1
-    kubectl set env deployment exchenge-service SPRING_DATASOURCE_URL=jdbc:mysql://host.docker.internal:3306/exchange_service
-    kubectl set env deployment/exchenge-service SPRING_DATASOURCE_USERNAME=docker SPRING_DATASOURCE_PASSWORD=admin123
-    kubectl expose deployment exchenge-service --type=LoadBalancer --port=8000
+    kubectl create deployment exchange-service --image=andersonmesq/exchange-service:kube-v1
+    kubectl set env deployment exchange-service SPRING_DATASOURCE_URL=jdbc:mysql://host.docker.internal:3306/exchange_service
+    kubectl set env deployment exchange-service SPRING_DATASOURCE_USERNAME=docker SPRING_DATASOURCE_PASSWORD=admin123
+    kubectl expose deployment exchange-service --type=LoadBalancer --port=8000
     kubectl logs nome-do-novo-pod -c exchange-service -f
-    kubectl logs exchenge-service-58fcfc5bbd-jztlf -c exchange-service -f
+    kubectl logs exchange-service-f6fcb98d5-vm5tw -c exchange-service -f
+    kubectl get pods -w
+
+    kubectl create deployment exchange-service --image=andersonmesq/exchange-service:kube-v1
+    kubectl set env deployment exchange-service SPRING_DATASOURCE_URL=jdbc:mysql://host.docker.internal:3308/exchange_service
+    kubectl expose deployment exchange-service --type=LoadBalancer --port=8000
