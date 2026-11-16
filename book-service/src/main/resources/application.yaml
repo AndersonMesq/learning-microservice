@@ -37,9 +37,9 @@ spring:
     name: book-service
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3310/book_service
-    username: root
-    password: admin123
+    url: ${SPRING_DATASOURCE_URL:jdbc:mysql://localhost:3310/book_service?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC}
+    username: ${SPRING_DATASOURCE_USERNAME:docker}
+    password: ${SPRING_DATASOURCE_PASSWORD:admin123}
   jpa:
     hibernate:
       ddl-auto: none

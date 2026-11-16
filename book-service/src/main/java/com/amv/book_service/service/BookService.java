@@ -14,7 +14,7 @@ import org.springframework.stereotype.Service;
 @Service
 @RequiredArgsConstructor
 public class BookService {
-    private final Logger logger = LoggerFactory.getLogger(BookController.class);
+    private final Logger logger = LoggerFactory.getLogger(BookService.class);
     private final BookRepository repository;
     private final InstanceInformationService informationService;
     private final ExchangeProxy proxy;

@@ -19,9 +19,9 @@ spring:
     name: exchange-service
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3308/exchange_service
-    username: root
-    password: admin123
+    url: ${SPRING_DATASOURCE_URL:jdbc:mysql://localhost:3308/exchange_service?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC}
+    username: ${SPRING_DATASOURCE_USERNAME:docker}
+    password: ${SPRING_DATASOURCE_PASSWORD:admin123}
   jpa:
     hibernate:
       ddl-auto: none
