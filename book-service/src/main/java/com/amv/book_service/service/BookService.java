@@ -30,7 +30,7 @@ public class BookService {
         logger.info("Calculating the converted price of the book from {} USD to {}.", book.getPrice(), currency);
         ExchangeResponse exchangeResponse = proxy.getExchange(book.getPrice(), "USD", currency);
 
-        book.setEnvironment("BOOK HOST"+ host + "PORT: " + port + "VERSION: kube-v1" + " EXCHANGE HOST: " + exchangeResponse.getEnvironment());
+        book.setEnvironment("BOOK HOST"+ host + "PORT: " + port + "VERSION: kube-v2" + " EXCHANGE HOST: " + exchangeResponse.getEnvironment());
         book.setPrice(exchangeResponse.getConvertedValue());
         book.setCurrency(currency);
         return book;

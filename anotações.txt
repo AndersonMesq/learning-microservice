@@ -2,6 +2,7 @@ eureka:
     http://localhost:8761
 book-service:
     http://localhost:8100/
+    http://localhost:8100/book-service/5/BRL
 exchange-service:
     http://localhost:8000/exchange-service/5/USD/BRL
 api-gateway:
@@ -18,14 +19,15 @@ Comandos docker/docker compose:
     docker tag naming-server:0.0.1-SNAPSHOT andersonmesq/naming-server:0.0.1-SNAPSHOT
 
 Comandos kubectl:
-    kubectl create deployment exchange-service --image=andersonmesq/exchange-service:kube-v1
-    kubectl set env deployment exchange-service SPRING_DATASOURCE_URL=jdbc:mysql://host.docker.internal:3306/exchange_service
-    kubectl set env deployment exchange-service SPRING_DATASOURCE_USERNAME=docker SPRING_DATASOURCE_PASSWORD=admin123
-    kubectl expose deployment exchange-service --type=LoadBalancer --port=8000
     kubectl logs nome-do-novo-pod -c exchange-service -f
-    kubectl logs exchange-service-f6fcb98d5-vm5tw -c exchange-service -f
+    kubectl logs book-service-86b564cc99-fczx6 -c exchange-service -f
     kubectl get pods -w
+    kubectl delete all --all
 
     kubectl create deployment exchange-service --image=andersonmesq/exchange-service:kube-v1
     kubectl set env deployment exchange-service SPRING_DATASOURCE_URL=jdbc:mysql://host.docker.internal:3308/exchange_service
     kubectl expose deployment exchange-service --type=LoadBalancer --port=8000
+
+    kubectl create deployment book-service --image=andersonmesq/book-service:kube-v1
+    kubectl set env deployment book-service SPRING_DATASOURCE_URL=jdbc:mysql://host.docker.internal:3310/book_service
+    kubectl expose deployment book-service --type=LoadBalancer --port=8100
